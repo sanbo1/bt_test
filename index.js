@@ -21,6 +21,8 @@ var arrayTimerID = [];
 var px = '';
 var soundFlg = false;
 
+var immediateTxt = "ここは危険です";
+
 
 //
 // inner function
@@ -88,9 +90,8 @@ Bt.on("discover", function(bleacon) {
 			led_green.writeSync(1);
 
 			if (soundFlg == false) {
-				var txt = 'ここはきけんです';
 				soundFlg = true;
-				exec('./jsay.sh ' + txt, function() {
+				exec('./jsay.sh ' + immediateTxt, function() {
 					soundFlg = false;
 				});
 			}
